@@ -1,0 +1,7 @@
+<% @log.each do |log_entry| %>
+  <p>
+  <%= @log.date %> - 
+  <%= @log.user_face_id %><br>
+  <img src="<%= @log.picture_path.gsub('public','') %>">
+</p>
+<% end %>

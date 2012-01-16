@@ -5,11 +5,15 @@ class Camera
   end
 
   def shot
-    camera.query.save_image(picture_path_with_timestamp)
+    path = self.class.picture_path_with_timestamp
+    @device.query.save_image(path)
+    return path
   end
 
   def self.single_shot
-    OpenCV::CvCapture.get_picture()
+    path = picture_path_with_timestamp
+    OpenCV::CvCapture.get_picture().save_image(path)
+    return path
   end
 
   def self.preview(image)
@@ -21,7 +25,7 @@ class Camera
 
   private
 
-  def picture_path_with_timestamp
-    'tmp/'<<Time.now.to_s << '.jpg'
+  def self.picture_path_with_timestamp
+    'public/'<<Time.now.to_s << '.jpg'
   end
 end

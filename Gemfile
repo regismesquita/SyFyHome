@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'opencv', :git => 'https://github.com/regismesquita/ruby-opencv'
 gem 'face' , :git => 'https://github.com/regismesquita/face'
+gem 'thin'
 
 # Component requirements
 gem 'haml'

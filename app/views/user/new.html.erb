@@ -1,0 +1,22 @@
+<% form_for @user, '/user/create' do |f| %>
+  <p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+  <p>
+  insira aqui o nome que sera usado no namespace do face.com(apenas letras):
+  <%= f.label :face_id %>
+  <%= f.text_field :face_id %>
+</p>
+  <p>
+  <%= f.label :last_fm %>
+  <%= f.text_field :last_fm %>
+</p>
+  <p>
+  <%= f.label :favorite_artists %>
+  <%= f.text_field :favorite_artists %>
+</p>
+  <p>
+  <%= f.submit %>
+</p>
+<% end %>

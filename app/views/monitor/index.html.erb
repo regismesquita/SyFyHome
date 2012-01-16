@@ -1,0 +1,8 @@
+<p>  <img src="<%= @picture.gsub('public','') %>"> </p>
+Users Found: <br>
+<% @users_found.each do |user_found| %>
+  <p>
+    UID: <%= user_found['uid'] %> -
+    Confidence: <%= user_found['confidence'].to_s %>
+</p>
+  <% end %>

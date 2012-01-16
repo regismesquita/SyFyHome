@@ -19,6 +19,14 @@ SyFyHome.controllers :monitor do
   # end
 
   get :index do
+    @picture = Camera.single_shot
+    @users_found = FaceRecognition.new.recognize_user_faces_in(@picture)
+
+    render 'monitor/index'
+  end
+  get :log do
+    @log = EntranceLog.all
+    render 'monitor/log'
   end
 
 end

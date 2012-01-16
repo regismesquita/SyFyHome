@@ -1,0 +1,13 @@
+<p>Nome: <%= @user.name %></p>
+<p>Face.com:<%= @user.face_id %></p>
+<p>Favorite Artists: <%= @user.favorite_artists %></p>
+<p>Last.fm: <%= @user.last_fm %></p>
+
+<p>Pictures to be sent:</p>
+
+<% @user.pictures.each do |picture| %>
+  <p>  <img src="<%= picture.gsub('public','') %>"> </p>
+<% end %>
+
+<%= button_to('Capture Picture','/user/add_photo/'<< @user.id.to_s  ,:method => :post) %>
+<%= button_to('Send Pictures','/user/send_photos/'<< @user.id.to_s ,:method => :post) %>

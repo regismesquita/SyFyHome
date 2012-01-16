@@ -7,34 +7,32 @@ class FaceRecognition
   end
 
   def recognize_user_faces_in(file)
-    get_user_from(faces_in_file(file))
+    get_users_from(faces_in_file(file))
   end
 
   def add_face_images_for_user(params)
     @tids = Array.new
     params[:face_files].each do |face_file|
-      @tids.push register_face_from_file(face)
+      @tids.push register_face_from_file(face_file)
     end
 
-    @tids.each do |tid|
-      client.tags_save(:tids => tids.join(','), :uid => uid_for(params[:user]))
-    end
+   @client.tags_save(:tids => @tids.join(','), :uid => uid_for(params[:user]))
     
-    client.faces_train(:uids => uid_for(params[:user]))
+    @client.faces_train(:uids => uid_for(params[:user]))
   end
 
   private
   def all_uid
-    'all' << PRIVATE_NAMESPACE
+    'all' + PRIVATE_NAMESPACE
   end
 
   def uid_for(user)
-    user << PRIVATE_NAMESPACE
+    user + PRIVATE_NAMESPACE
   end
 
   def faces_in_file(file)
     image = File.open(file,'rb')
-    client.faces_recognize(:file => image, :uids => all_uid)
+    @client.faces_recognize(:file => image, :uids => all_uid)
   end
 
   def get_users_from(faces_return)
@@ -42,7 +40,8 @@ class FaceRecognition
   end
   
   def register_face_from_file(file)
-    face_detect = client.faces_detect(:file => file)
+    image = File.open(file,'rb')
+    face_detect = @client.faces_detect(:file => image)
     face_detect['photos'].first['tags'].first['tid']
   end
 end
