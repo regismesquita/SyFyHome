@@ -1,0 +1,6 @@
+=Installation=
+1. Install OpenCV.
+2. copy haarcascades inside a folder called 'data/'
+3. Download and install https://github.com/ryanfb/ruby-opencv (Mine failed to install passing on Gemfile.)
+4. Train face.com for registered personel usign train.rb
+5. Start monitoring with monitor.rb
