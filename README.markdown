@@ -16,9 +16,8 @@ This first part of the project , identify faces with OpenCV and recognize them w
  * Start monitoring for real with padrino rake monitor
 
 #TODO#
-
-Improve the monitor
-Set computer playlist and Slideshow based in who is in.
-Improve the interface.
-Send Email and SMS notification when someone unrecognized enters the perimeter.
-Do the rest of the project :P
+ * Improve the monitor
+ * Set computer playlist and Slideshow based in who is in.
+ * Improve the interface.
+ * Send Email and SMS notification when someone unrecognized enters the perimeter.
+ * Do the rest of the project :P
